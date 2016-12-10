@@ -12,7 +12,7 @@ let isodd = (num) => num % 2 !=0 ? true : false;
 let iseven = (num) => num % 2 !=0 ? false : true;
 
 
-//Get random ite in an array
+//Get random item in an array
 let getRandArrayItem = (arr) => arr[ Math.floor(Math.random() * arr.length) ];
 
 
@@ -23,7 +23,7 @@ let arrayhasItem = (array, item) => {
 } 
 
 
-//Remove random a specific item in an array
+//Remove a random specific item in an array
 let removeRandArrayItem = (array, item) => {
   let i = array.indexOf(item);
 
