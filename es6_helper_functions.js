@@ -23,7 +23,7 @@ let arrayhasItem = (array, item) => {
 } 
 
 
-//Remove a random specific item in an array
+//Remove a specific item in an array
 let removeRandArrayItem = (array, item) => {
   let i = array.indexOf(item);
 
