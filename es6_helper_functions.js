@@ -56,6 +56,27 @@ let genhexcolor = () => {
 }
 
 
+
+
+//setInterval
+let setIntervals = (callback, seconds, len) => {
+  let i = 0, interval = setInterval(function () {
+    if (i < len) {
+      callback();
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, seconds)
+}
+
+// write 'hi!' 5 times every 1000ms 
+setIntervals(function(){console.log('hi!');}, 1000, 5);
+
+
+
+
+
 //calculate params
 let calculate = (...n) => {
   let base = Number(...n),
@@ -68,19 +89,6 @@ let calculate = (...n) => {
   }
   console.log(base);
 }
-
-
-
-//setInterval
-class Drum{
-  constructor(){
-    this.noise = 'boom';
-    this.duration = 1000;
-    this.goBoom = () => console.log(this.noise);
-  }
-}
-let drum = new Drum();
-setInterval(drum.goBoom.bind(drum), drum.duration);
 
 
 
