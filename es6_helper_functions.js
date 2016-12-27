@@ -1,5 +1,3 @@
-
-
 //Generate a Random Number between..
 let randnum = (min,max) => Math.random() * (max-min) + min;
 
@@ -58,12 +56,160 @@ let genhexcolor = () => {
 }
 
 
+//calculate params
+let calculate = (...n) => {
+  let base = Number(...n),
+        len = n.length,
+        i = 1;
+        
+  while(i < len){
+    base *= n[i];
+    i++;
+  }
+  console.log(base);
+}
 
 
 
+//setInterval
+class Drum{
+  constructor(){
+    this.noise = 'boom';
+    this.duration = 1000;
+    this.goBoom = () => console.log(this.noise);
+  }
+}
+let drum = new Drum();
+setInterval(drum.goBoom.bind(drum), drum.duration);
 
 
 
+//factorial
+let recursion = (factorial) => {
+  let result = factorial <= 0 ? 1 :  factorial * recursion(factorial - 1);
+  return result;
+}
+console.log( recursion(6) );
+
+
+//fibonacci
+let fibonacci = (n) => {
+  let result = n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+  return result;
+}
+console.log( fibonacci(8) );
+
+
+
+//merge arrays
+let a = [1,2,3];
+let b = [4,5,6];
+
+a.push(...b);
+
+console.log(a);
+
+
+//merge array of objects
+let twerps = [
+  {name: 'Angelique', age: 26},
+  {name: 'Cheryl', age: 33},
+  {name: 'Nalani', age: 27}
+];
+
+let prop = (name) => {
+  return function(object){
+    //same as object.name
+    return object[name];
+  }
+}
+
+let result = twerps.map( prop('age') ).join(', ');
+
+console.log(result);
+
+
+
+//merge objects to array
+let dataObject = {
+  object1: { id: 1, name: 'Fred'},
+  object2: { id: 2, name: 'Wilma'},
+  object3: { id: 3, name: 'Pebbles'}
+};
+
+let dataArray = Object.keys(dataObject).map( n=> dataObject[n] );
+
+console.log(dataArray);
+
+
+
+//object keys
+let data = {
+  name: 'Baron',
+  age: 30,
+  occupation: 'Developer'
+};
+
+
+
+//array of key names
+let key = Object.keys(data);
+console.log(key);
+
+
+
+//key names (non array)
+for(let i = 0; i < key.length; i++){
+  console.log( key[i] );
+}
+
+
+
+//recursion
+let countFrom = (n) => {
+  console.log(n);
+  let result = n <= 0 ? 'Hello' : countFrom(n-1);
+  return result;
+}
+console.log( countFrom(21) );
+
+
+
+//string
+let x = `Bond`;
+let bondline = `my name is ${x} , James ${x}`;
+console.log(bondline);
+
+
+//while loop
+let myArray = [2,4,6,8,10,12],
+      len = myArray.length,
+      counter = 0;
+      
+while(counter < len){
+  console.log( myArray[counter] );
+  counter++;
+}
+
+while(len--){
+  console.log( myArray[len] );
+}
+
+
+//todo
+let todoList = [];
+let rememberTo = (task) => console.log( todoList.push(task) );
+let whatIsNext = () => console.log( todoList.shift() );
+let urgentlyRememberTo = (task) => console.log( todoList.unshift(task) );
+
+rememberTo('buy ticket');
+
+
+//map
+let nums = [1,3,9];
+let result = nums.map( n => n * 2);
+
+console.log(result);
 
 
 
