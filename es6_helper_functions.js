@@ -258,7 +258,21 @@ for(let v of arr){
 
 
 
+//image preloader
+let numOfImgs = 9;
+for (let i = 1; i <= numOfImgs; i++) {
+  let img = document.createElement('img');
+  let item = document.createElement('div');
+  
+  //increments image height based on i
+  img.src = 'https://placehold.it/650x45' + i;
+  //add image inside div
+  item.appendChild(img);
 
+  //add to the DOM
+  document.body.appendChild(item);
+
+};
 
 
     
