@@ -198,9 +198,18 @@ while(len--){
 
 //todo
 let todoList = [];
-let rememberTo = (task) => console.log( todoList.push(task) );
+
+let rememberTo = (task) => {
+  todoList.push(task);
+  console.log( todoList );
+}
+
+let urgentlyRememberTo = (task) => {
+  todoList.unshift(task);
+  console.log(todoList);
+}
+
 let whatIsNext = () => console.log( todoList.shift() );
-let urgentlyRememberTo = (task) => console.log( todoList.unshift(task) );
 
 rememberTo('buy ticket');
 
@@ -210,6 +219,45 @@ let nums = [1,3,9];
 let result = nums.map( n => n * 2);
 
 console.log(result);
+
+
+//create object map
+let map = {};
+let storePhi = (event,phi) => map[event] = phi;
+storePhi('pizza', 0.069);
+storePhi('touched tree', -0.081);
+
+console.log('pizza' in map);
+console.log(map['touched tree']);
+
+
+//curry
+//a curried function is one that returns a new function for every logical argument that it takes
+let leftCurryDiv = (n) =>{
+  return (d) => n/d;
+}
+
+let rightCurryDiv = (d) =>{
+  return (n) => n/d;
+}
+
+let divide10By = leftCurryDiv(10);
+console.log( divide10By(2) );
+
+let divideBy10 = rightCurryDiv(10);
+console.log( divideBy10(2) );
+
+
+
+//for loop
+let arr = [4,5,6,7,8,9];
+for(let v of arr){
+  console.log(v);
+}
+
+
+
+
 
 
 
