@@ -70,7 +70,7 @@ let setIntervals = (callback, seconds, len) => {
   }, seconds);
 }
 
-// logs 'hi!' 5 times every 1000ms 
+// logs 'hi!' every 1000ms only 5 times 
 setIntervals(function(){console.log('hi!')}, 1000, 5);
 
 
