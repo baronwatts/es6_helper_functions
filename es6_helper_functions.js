@@ -13,18 +13,22 @@ console.log( divideBy10(2) ); //=> 0.2
 
 //Generate a Random Number between..
 let randnum = (min,max) => Math.random() * (max-min) + min;
+console.log( randnum(1,7) ); //=> outputs a random number between 1 and 7
 
 
 //Check if number is odd
 let isodd = (num) => num % 2 !=0 ? true : false;
+console.log( isodd(7) ); //=> true
 
 
 //Check if number is even
 let iseven = (num) => num % 2 !=0 ? false : true;
+console.log( iseven(4) ); //=> true
 
 
 //Get random item in an array
 let getRandArrayItem = (arr) => arr[ Math.floor(Math.random() * arr.length) ];
+console.log( getRandArrayItem(['red', 'blue', 'green', 'tan' ]) ); //=> green
 
 
 //Check if array has a specific item
@@ -32,6 +36,8 @@ let arrayhasItem = (array, item) => {
   let i = array.indexOf(item);
   return i != -1 ? true : false;  
 } 
+console.log( arrayhasItem(['red', 'blue', 'green', 'tan' ], 'yellow') ); //=> false
+
 
 
 //Remove a specific item in an array
@@ -41,6 +47,9 @@ let removeRandArrayItem = (array, item) => {
   if(i != -1) array.splice(i, 1);
   return array;
 } 
+console.log( removeRandArrayItem(['red', 'blue', 'green', 'tan' ], 'tan') ); //=> ['red','blue','green']
+
+
 
 
 //Shuffle an array
@@ -53,6 +62,10 @@ let shufflearray = (array) => {
     }
     return array;
 }
+console.log( shufflearray(['a','b','c','d']) ); //=> ["b", "a", "d", "c"]
+
+
+
 
 
 //Generate a random color
@@ -67,6 +80,7 @@ let genhexcolor = () => {
   }
   return hexcolor;
 }
+console.log( genhexcolor() ); //=> #AF6644
 
 
 
@@ -84,6 +98,9 @@ let setIntervals = (callback, seconds, len) => {
 }
 
 setIntervals( () => console.log('hi!'), 1000, 5); // logs 'hi!' every 1000ms only 5 times 
+
+
+
 
 
 //increment counter
@@ -116,6 +133,8 @@ calculate(10,10,20); //=>2000
 
 
 
+
+
 //factorial
 let recursion = (factorial) => {
   let result = factorial <= 0 ? 1 :  factorial * recursion(factorial - 1);
@@ -132,6 +151,8 @@ let fibonacci = (n) => {
   return result;
 }
 console.log( fibonacci(8) ); //=>34
+
+
 
 
 
