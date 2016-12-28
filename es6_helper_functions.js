@@ -60,7 +60,7 @@ let genhexcolor = () => {
 
 //setInterval
 let setIntervals = (callback, seconds, len) => {
-  let i = 0, interval = setInterval(function () {
+  let i = 0, interval = setInterval( () => {
     if (i < len) {
       callback();
       i++;
