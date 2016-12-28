@@ -183,7 +183,7 @@ let countFrom = (n) => {
   let result = n <= 0 ? 'Hello' : countFrom(n-1);
   return result;
 }
-console.log( countFrom(21) );
+countFrom(21);
 
 
 
