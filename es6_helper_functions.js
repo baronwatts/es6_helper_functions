@@ -1,3 +1,16 @@
+// curry - a function is one that returns a new function for every logical argument that it takes
+let leftCurryDiv = (n) => (d) => n/d;
+let divide10By = leftCurryDiv(10);
+console.log( divide10By(2) ); //=> 5
+
+
+
+let rightCurryDiv = (d) => (n) => n/d;
+let divideBy10 = rightCurryDiv(10);
+console.log( divideBy10(2) ); //=> 0.2
+
+
+
 //Generate a Random Number between..
 let randnum = (min,max) => Math.random() * (max-min) + min;
 
@@ -70,8 +83,7 @@ let setIntervals = (callback, seconds, len) => {
   }, seconds);
 }
 
-// logs 'hi!' every 1000ms only 5 times 
-setIntervals( () => console.log('hi!'), 1000, 5);
+setIntervals( () => console.log('hi!'), 1000, 5); // logs 'hi!' every 1000ms only 5 times 
 
 
 //increment counter
@@ -83,6 +95,8 @@ let countUp = (() => {
 countUp(); //=>1
 countUp(); //=>2
 countUp(); //=>3
+
+
 
 
 //calculate params
@@ -98,6 +112,8 @@ let calculate = (...n) => {
   console.log(base);
 }
 
+calculate(10,10,20); //=>2000
+
 
 
 //factorial
@@ -105,7 +121,9 @@ let recursion = (factorial) => {
   let result = factorial <= 0 ? 1 :  factorial * recursion(factorial - 1);
   return result;
 }
-console.log( recursion(6) );
+console.log( recursion(6) ); //=>720
+
+
 
 
 //fibonacci
@@ -113,7 +131,7 @@ let fibonacci = (n) => {
   let result = n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
   return result;
 }
-console.log( fibonacci(8) );
+console.log( fibonacci(8) ); //=>34
 
 
 
@@ -122,8 +140,9 @@ let a = [1,2,3];
 let b = [4,5,6];
 
 a.push(...b);
+console.log(a); //=> [1,2,3,4,5,6]
 
-console.log(a);
+
 
 
 //merge array of objects
@@ -141,8 +160,9 @@ let prop = (name) => {
 }
 
 let result = twerps.map( prop('age') ).join(', ');
+console.log(result); //=> 26,33,27
 
-console.log(result);
+
 
 
 
@@ -154,8 +174,9 @@ let dataObject = {
 };
 
 let dataArray = Object.keys(dataObject).map( n=> dataObject[n] );
+console.log(dataArray); //=> [{'id':1,'name':'Fred'}, {'id':2, 'name': 'Wilma'}, {'id': 3, 'name': 'Pebbles'}]
 
-console.log(dataArray);
+
 
 
 
@@ -166,18 +187,14 @@ let data = {
   occupation: 'Developer'
 };
 
-
-
-//array of key names
 let key = Object.keys(data);
-console.log(key);
+console.log(key); //=> ['name', 'age', 'occupation']
 
-
-
-//key names (non array)
 for(let i = 0; i < key.length; i++){
-  console.log( key[i] );
+  console.log( key[i] ); //=> name age occupation
 }
+
+
 
 
 
@@ -187,7 +204,9 @@ let countFrom = (n) => {
   let result = n <= 0 ? 'Hello' : countFrom(n-1);
   return result;
 }
-countFrom(21);
+countFrom(5); //=> 5 4 3 2 1 0
+
+
 
 
 
@@ -196,14 +215,19 @@ let printNumbers = (from,to) =>{
   console.log(from);
   if (from !== to) printNumbers(from + 1, to);
 }
-printNumbers(1, 100);
+printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
+
+
 
 
 
 //string
 let x = `Bond`;
 let bondline = `my name is ${x} , James ${x}`;
-console.log(bondline);
+console.log(bondline); //=> my name is Bond, James Bond
+
+
+
 
 
 //while loop
@@ -212,13 +236,16 @@ let myArray = [2,4,6,8,10,12],
       counter = 0;
       
 while(counter < len){
-  console.log( myArray[counter] );
+  console.log( myArray[counter] ); //=> 2 4 6 8 10 12
   counter++;
 }
 
 while(len--){
-  console.log( myArray[len] );
+  console.log( myArray[len] ); //=> 12 10 8 6 4 2
 }
+
+
+
 
 
 //todo
@@ -236,14 +263,21 @@ let urgentlyRememberTo = (task) => {
 
 let whatIsNext = () => console.log( todoList.shift() );
 
-rememberTo('buy ticket');
+rememberTo('buy ticket'); //=> ['buy ticket']
+
+
+
+
 
 
 //map
 let nums = [1,3,9];
 let result = nums.map( n => n * 2);
 
-console.log(result);
+console.log(result); //=> [2,9,18]
+
+
+
 
 
 //create object map
@@ -252,32 +286,16 @@ let storePhi = (event,phi) => map[event] = phi;
 storePhi('pizza', 0.069);
 storePhi('touched tree', -0.081);
 
-console.log('pizza' in map);
-console.log(map['touched tree']);
+console.log('pizza' in map); //=> true
+console.log(map['touched tree']); //=> -0.081
 
-
-//curry
-//a curried function is one that returns a new function for every logical argument that it takes
-let leftCurryDiv = (n) =>{
-  return (d) => n/d;
-}
-
-let rightCurryDiv = (d) =>{
-  return (n) => n/d;
-}
-
-let divide10By = leftCurryDiv(10);
-console.log( divide10By(2) );
-
-let divideBy10 = rightCurryDiv(10);
-console.log( divideBy10(2) );
 
 
 
 //for loop
 let arr = [4,5,6,7,8,9];
 for(let v of arr){
-  console.log(v);
+  console.log(v); //=> 4 5 6 7 8 9
 }
 
 
@@ -295,9 +313,10 @@ for (let i = 1; i <= numOfImgs; i++) {
   item.appendChild(img);
 
   //add to the DOM
-  document.body.appendChild(item);
-
+  document.body.appendChild(item); //=> outputs 9 images to te DOM with different heights
 };
+
+
 
 
 //fizzbuzz
@@ -321,4 +340,4 @@ while (i < 200) {
     fragment.appendChild(el);
     i++; 
 }
-document.body.appendChild(fragment);
+document.body.appendChild(fragment); //=> outputs 200 li's to the DOM
