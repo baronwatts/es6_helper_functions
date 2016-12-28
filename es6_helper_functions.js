@@ -80,6 +80,10 @@ let countUp = (() => {
   return () => ++count;
 })();
 
+countUp(); //=>1
+countUp(); //=>2
+countUp(); //=>3
+
 
 //calculate params
 let calculate = (...n) => {
