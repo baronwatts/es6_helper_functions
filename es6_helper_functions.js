@@ -187,6 +187,15 @@ console.log( countFrom(21) );
 
 
 
+//recursion 
+let printNumbers = (from,to) =>{
+  console.log(from);
+  if (from !== to) printNumbers(from + 1, to);
+}
+printNumbers(1, 100);
+
+
+
 //string
 let x = `Bond`;
 let bondline = `my name is ${x} , James ${x}`;
@@ -295,3 +304,17 @@ for ( let i=1; i<=100; i++ ) {
 
   console.log( result );
 }
+
+
+
+
+//document fragment - Bypass recalculating, painting and layout for every single element we add.
+let el, i = 0; fragment = document.createDocumentFragment();
+
+while (i < 200) {
+    el = document.createElement('li');
+    el.innerText = 'This is my list item number ' + i;
+    fragment.appendChild(el);
+    i++; 
+}
+document.body.appendChild(fragment);
