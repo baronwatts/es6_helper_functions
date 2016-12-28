@@ -225,7 +225,7 @@ let countFrom = (n) => {
   let result = n <= 0 ? 'Hello' : countFrom(n-1);
   return result;
 }
-countFrom(5); //=> 5 4 3 2 1 0
+countFrom(5); //=> 5 4 3 2 1 0 'Hello'
 
 
 
