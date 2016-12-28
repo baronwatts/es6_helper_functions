@@ -130,7 +130,7 @@ let twerps = [
 ];
 
 let prop = (name) => {
-  return function(object){
+  return (object) => {
     //same as object.name
     return object[name];
   }
