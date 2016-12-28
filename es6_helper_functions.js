@@ -1,4 +1,4 @@
-// curry - a function is one that returns a new function for every logical argument that it takes
+// curry - a function that returns a new function for every logical argument that it takes
 let leftCurryDiv = (n) => (d) => n/d;
 let divide10By = leftCurryDiv(10);
 console.log( divide10By(2) ); //=> 5
