@@ -74,7 +74,11 @@ let setIntervals = (callback, seconds, len) => {
 setIntervals(function(){console.log('hi!')}, 1000, 5);
 
 
-
+//increment counter
+let countUp = (() => {
+  let count = 0;
+  return () => ++count;
+})();
 
 
 //calculate params
