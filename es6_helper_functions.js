@@ -175,7 +175,7 @@ let twerps = [
 
 let prop = (name) => {
   return (object) => {
-    //same as object.name
+    //same as returning this.name
     return object[name];
   }
 }
