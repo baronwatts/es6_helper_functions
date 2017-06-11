@@ -39,7 +39,7 @@ console.log( iseven(4) ); //=> true
 
 //Check first value in the array
 let isFirstBiggest = xs => xs[0] == xs.sort((a,b)=>b-a)[0];
-console.log( isFirstBiggest([20.1, 5,4,3,2,1]) );
+console.log( isFirstBiggest([20.1, 5,4,3,2,1]) ); //=> true
 
 
 //Get random item in an array
