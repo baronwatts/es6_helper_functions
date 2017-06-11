@@ -74,7 +74,7 @@ genhexcolor(); //=> #e53910
 
 //Generate a random color
 let genhsla = () => "hsla(" + Math.round(Math.random() * 360) + ", 50%, 50%, .5)";
-genhsla();
+genhsla(); //=> "hsla(88, 50%, 50%, .5)"
 
 
 //factorial
