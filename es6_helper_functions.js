@@ -52,10 +52,6 @@ let arrayhasItem = (array, item) => array.some(x=>x==item);
 arrayhasItem(['red', 'blue', 'green', 'tan' ], 'blue'); //=> true
 
 
-let arrayhasItem = (array, item) => array.some(x=>x==item);
-arrayhasItem([0, 1, 2, 3, 4], 2); //=> true
-
-
 //Remove a specific item in an array
 let removeArrayItem = (array, item) => array.filter(x => x != item);
 console.log( removeArrayItem(['red', 'blue', 'green', 'tan' ], 'tan') ); //=> ['red','blue','green']
