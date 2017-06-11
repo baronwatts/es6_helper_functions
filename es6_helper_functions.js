@@ -1,14 +1,25 @@
-// curry - a function that returns a new function for every logical argument that it takes
+/*
+Pure Functions 
+1. Functions that don’t modify anything outside of themselves?
+2. Pass values as parameters, don’t store state in member variables
+3. Always returning the same result for a given input
+*/
+
+
+
+/*
+curry /partial application are both techniques for specialize a generalized function
+partial application - provides some of the args now and all of the args on the next call
+curry - one arguments at a time on the next call
+*/
 let leftCurryDiv = (n) => (d) => n/d;
 let divide10By = leftCurryDiv(10);
 console.log( divide10By(2) ); //=> 5
 
 
-
 let rightCurryDiv = (d) => (n) => n/d;
 let divideBy10 = rightCurryDiv(10);
 console.log( divideBy10(2) ); //=> 0.2
-
 
 
 //Generate a Random Number between..
@@ -26,144 +37,118 @@ let iseven = (num) => num % 2 !=0 ? false : true;
 console.log( iseven(4) ); //=> true
 
 
+//Check first value in the array
+let isFirstBiggest = xs => xs[0] == xs.sort((a,b)=>b-a)[0];
+console.log( isFirstBiggest([20.1, 5,4,3,2,1]) );
+
+
 //Get random item in an array
 let getRandArrayItem = (arr) => arr[ Math.floor(Math.random() * arr.length) ];
 console.log( getRandArrayItem(['red', 'blue', 'green', 'tan' ]) ); //=> green
 
 
 //Check if array has a specific item
-let arrayhasItem = (array, item) => {
-  let i = array.indexOf(item);
-  return i != -1 ? true : false;  
-} 
-console.log( arrayhasItem(['red', 'blue', 'green', 'tan' ], 'yellow') ); //=> false
+let arrayhasItem = (array, item) => array.some(x=>x==item);
+arrayhasItem(['red', 'blue', 'green', 'tan' ], 'blue'); //=> true
 
+
+let arrayhasItem = (array, item) => array.some(x=>x==item);
+arrayhasItem([0, 1, 2, 3, 4], 2); //=> true
 
 
 //Remove a specific item in an array
-let removeRandArrayItem = (array, item) => {
-  let i = array.indexOf(item);
-
-  if(i != -1) array.splice(i, 1);
-  return array;
-} 
-console.log( removeRandArrayItem(['red', 'blue', 'green', 'tan' ], 'tan') ); //=> ['red','blue','green']
-
-
+let removeArrayItem = (array, item) => array.filter(x => x != item);
+console.log( removeArrayItem(['red', 'blue', 'green', 'tan' ], 'tan') ); //=> ['red','blue','green']
 
 
 //Shuffle an array
-let shufflearray = (array) => {
-   for(let i = array.length - 1; i > 0; i--){
-        let j = Math.floor(Math.random() * (i + 1));
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
-console.log( shufflearray(['a','b','c','d']) ); //=> ["b", "a", "d", "c"]
+let shuffleArray = (arr) => arr.sort( () => (Math.random() - 0.5) );
+shuffleArray(['a','b','c','d']); //=> ['d','a','c','b']
 
 
-
+//Sort an array
+let mySort = (...args) => args.sort( (a,b)=> a-b );
+mySort(10,2,3); //=> [2,3,10]
 
 
 //Generate a random color
-let genhexcolor = () => {
-  let hexarray = '1234567890ABCDEF',
-      hexcolor = '#';
-
-  hexarray = hexarray.split('');
-      
-  for(let i = 6; i--;){
-    hexcolor += hexarray[Math.floor(Math.random()*hexarray.length)];
-  }
-  return hexcolor;
-}
-console.log( genhexcolor() ); //=> #AF6644
+let genhexcolor = () => '#' + Math.floor(Math.random()*16777215).toString(16);
+genhexcolor(); //=> #e53910
 
 
-
-
-//setInterval
-let setIntervals = (callback, seconds, len) => {
-  let i = 0, interval = setInterval( () => {
-    if (i < len) {
-      callback();
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  }, seconds);
-}
-
-setIntervals( () => console.log('hi!'), 1000, 5); // logs 'hi!' every 1000ms only 5 times 
-
-
-
-
-
-//increment counter
-let countUp = (() => {
-  let count = 0;
-  return () => ++count;
-})();
-
-countUp(); //=>1
-countUp(); //=>2
-countUp(); //=>3
-
-
-
-
-//calculate params
-let calculate = (...n) => {
-  let base = Number(...n),
-        len = n.length,
-        i = 1;
-        
-  while(i < len){
-    base *= n[i];
-    i++;
-  }
-  console.log(base);
-}
-
-calculate(10,10,20); //=>2000
-
-
-
+//Generate a random color
+let genhsla = () => "hsla(" + Math.round(Math.random() * 360) + ", 50%, 50%, .5)";
+genhsla();
 
 
 //factorial
-let recursion = (factorial) => {
-  let result = factorial <= 0 ? 1 :  factorial * recursion(factorial - 1);
-  return result;
-}
+let recursion = factorial => factorial <= 0 ? 1 : factorial * recursion(factorial - 1);
 console.log( recursion(6) ); //=>720
 
 
-
-
 //fibonacci
-let fibonacci = (n) => {
-  let result = n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
-  return result;
-}
+let fibonacci = n => n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
 console.log( fibonacci(8) ); //=>34
 
 
+//recursion
+let countFrom = n => (n <= 0 ? 'Hello' : countFrom(n-1), console.log(n) );
+countFrom(5); //=> 5 4 3 2 1 0 'Hello'
+
+
+//recursion 
+let printNumbers = (from,to) => ( from !== to ? printNumbers(from + 1, to) : console.log('counting from..'), console.log(from) );
+printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
+
+
+//Get Average
+let getAverage = tests => tests.reduce( (acc,elem) => acc + elem ) / tests.length;
+getAverage([10,20,30]); //=> 20
+
+
+//Multiply All
+let calculate = (...n) => n.reduce( (a,b) => a*b );
+calculate(10,10,20); //=> 2000
 
 
 
-//merge arrays
-let a = [1,2,3];
-let b = [4,5,6];
 
-a.push(...b);
-console.log(a); //=> [1,2,3,4,5,6]
+//Object to Array & Array to Object
+let our_data = {
+  "123456a": {
+    name: "tim",
+    age: 40,
+    city: "Farmtown"
+  },
+  "123456b": {
+    name: "jerry",
+    age: 40,
+    city: "Beachroad"
+  },
+  "123456c": {
+    name: "bob",
+    age: 30,
+    city: "Busyville"
+  }
+}
+
+let objToArray = (obj) => Object.keys(obj).map( key=>obj[key] );
+let arrayToObject = (arr, keyField) => arr.reduce((obj, item) => (obj[item[keyField]] = item, obj), {});
 
 
+let arr = objToArray(our_data);
+let obj = arrayToObject(arr, 'name');
+
+console.log(arr); //=> [ {},{},{} ]
+console.log(obj); //=> { key:{},key:{},key:{} } 
+console.log(obj['bob']); //=> {name: "bob", age: 30, city: "Busyville"}
+
+
+
+//A for loop doesn't return an array
+for(let i = 0; i < arr.length; i++){
+  console.log( arr[i].name ); //=> tim jerry bob
+}
 
 
 //merge array of objects
@@ -173,192 +158,12 @@ let twerps = [
   {name: 'Nalani', age: 27}
 ];
 
-let prop = (name) => {
-  return (object) => {
-    //same as returning this.name
-    return object[name];
-  }
-}
 
-let result = twerps.map( prop('age') ).join(', ');
+let getProp = name => object => object[name];
+let result = twerps.map( getProp('age') ).join(', ');
 console.log(result); //=> 26,33,27
 
 
 
-
-
-//merge objects to array
-let dataObject = {
-  object1: { id: 1, name: 'Fred'},
-  object2: { id: 2, name: 'Wilma'},
-  object3: { id: 3, name: 'Pebbles'}
-};
-
-let dataArray = Object.keys(dataObject).map( n=> dataObject[n] );
-console.log(dataArray); //=> [{'id':1,'name':'Fred'}, {'id':2, 'name': 'Wilma'}, {'id': 3, 'name': 'Pebbles'}]
-
-
-
-
-
-//object keys
-let data = {
-  name: 'Baron',
-  age: 30,
-  occupation: 'Developer'
-};
-
-let key = Object.keys(data);
-console.log(key); //=> ['name', 'age', 'occupation']
-
-for(let i = 0; i < key.length; i++){
-  console.log( key[i] ); //=> name age occupation
-}
-
-
-
-
-
-//recursion
-let countFrom = (n) => {
-  console.log(n);
-  let result = n <= 0 ? 'Hello' : countFrom(n-1);
-  return result;
-}
-countFrom(5); //=> 5 4 3 2 1 0 'Hello'
-
-
-
-
-
-//recursion 
-let printNumbers = (from,to) =>{
-  console.log(from);
-  if (from !== to) printNumbers(from + 1, to);
-}
-printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
-
-
-
-
-
-//string
-let x = `Bond`;
-let bondline = `my name is ${x} , James ${x}`;
-console.log(bondline); //=> my name is Bond, James Bond
-
-
-
-
-
-//while loop
-let myArray = [2,4,6,8,10,12],
-      len = myArray.length,
-      counter = 0;
-      
-while(counter < len){
-  console.log( myArray[counter] ); //=> 2 4 6 8 10 12
-  counter++;
-}
-
-while(len--){
-  console.log( myArray[len] ); //=> 12 10 8 6 4 2
-}
-
-
-
-
-
-//todo
-let todoList = [];
-
-let rememberTo = (task) => {
-  todoList.push(task);
-  console.log( todoList );
-}
-
-let urgentlyRememberTo = (task) => {
-  todoList.unshift(task);
-  console.log(todoList);
-}
-
-let whatIsNext = () => console.log( todoList.shift() );
-
-rememberTo('buy ticket'); //=> ['buy ticket']
-
-
-
-
-
-
-//map
-let nums = [1,3,9];
-let result = nums.map( n => n * 2);
-
-console.log(result); //=> [2,9,18]
-
-
-
-
-
-//create object map
-let map = {};
-let storePhi = (event,phi) => map[event] = phi;
-storePhi('pizza', 0.069);
-storePhi('touched tree', -0.081);
-
-console.log('pizza' in map); //=> true
-console.log(map['touched tree']); //=> -0.081
-
-
-
-
-//for loop
-let arr = [4,5,6,7,8,9];
-for(let v of arr){
-  console.log(v); //=> 4 5 6 7 8 9
-}
-
-
-
-
-//image preloader
-let numOfImgs = 9;
-for (let i = 1; i <= numOfImgs; i++) {
-  let img = document.createElement('img');
-  let item = document.createElement('div');
-  
-  //increments image height based on i
-  img.src = 'https://placehold.it/650x45' + i;
-  //add image inside div
-  item.appendChild(img);
-
-  //add to the DOM
-  document.body.appendChild(item); //=> outputs 9 images to te DOM with different heights
-};
-
-
-
-
-//fizzbuzz
-for ( let i=1; i<=100; i++ ) {
-  let mod3   = i%3 === 0,
-      mod5   = i%5 === 0,
-      result = mod3 && mod5 ? 'fizzbuzz' : mod3 ? 'fizz' : mod5 ? 'buzz' : i;
-
-  console.log( result );
-}
-
-
-
-
-//document fragment - Bypass recalculating, painting and layout for every single element we add.
-let el, i = 0; fragment = document.createDocumentFragment();
-
-while (i < 200) {
-    el = document.createElement('li');
-    el.innerText = 'This is my list item number ' + i;
-    fragment.appendChild(el);
-    i++; 
-}
-document.body.appendChild(fragment); //=> outputs 200 li's to the DOM
+//Array of indexes
+Array.from( Array(4).keys() ); //=> [0,1,2,3]
