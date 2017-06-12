@@ -1,6 +1,6 @@
 /*
 Pure Functions 
-1. Functions that don’t modify anything outside of themselves?
+1. Functions that don’t modify anything outside of themselves
 2. Pass values as parameters, don’t store state in member variables
 3. Always returning the same result for a given input
 */
