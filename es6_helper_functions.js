@@ -125,7 +125,7 @@ calculate(10,10,20); //=> 2000
 
 //Dictionary
 const findColor = name => ({ red:'#ff4444', blue: '#3b5998', yellow: '#fff68f' })[name];
-findColor('red');
+findColor('red'); //=> #ff4444
 
 
 
