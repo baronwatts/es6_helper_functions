@@ -123,6 +123,10 @@ let calculate = (...n) => n.reduce( (a,b) => a*b );
 calculate(10,10,20); //=> 2000
 
 
+//Dictionary
+const findColor = name => ({ red:'#ff4444', blue: '#3b5998', yellow: '#fff68f' })[name];
+findColor('red');
+
 
 
 //Object to Array & Array to Object
