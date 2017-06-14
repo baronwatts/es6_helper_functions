@@ -6,20 +6,34 @@ Pure Functions
 */
 
 
+/* curry/partial application are both techniques for specializing a generalized function */
 
-/*
-curry /partial application are both techniques for specialize a generalized function
-partial application - provides some of the args now and all of the args on the next call
-curry - one arguments at a time on the next call
-*/
-let leftCurryDiv = (n) => (d) => n/d;
+
+//curry - a returned function that accepts one arguments at a time on each call
+let getGradeTest = passGrade => failGrade => average => testScore => 
+	testScore >= average ? passGrade : failGrade;
+
+const passFailTester = getGradeTest('Pass')('Fail')(0.2); //returns the last function(testScore){};
+console.log( passFailTester(0.19) ); //=> Fail
+console.log( passFailTester(0.21) ); //=> Pass
+
+
+let leftCurryDiv = n => d => n/d;
 let divide10By = leftCurryDiv(10);
 console.log( divide10By(2) ); //=> 5
 
 
-let rightCurryDiv = (d) => (n) => n/d;
+let rightCurryDiv = d => n => n/d;
 let divideBy10 = rightCurryDiv(10);
 console.log( divideBy10(2) ); //=> 0.2
+
+
+
+//partial application - provides some of the args now and all of the args on the next call
+let partial = (f, ...args) => f.bind(null, ...args);
+let volume = (a,b,c)=> a*b*c;
+partial(volume,2)(3,4); //=> 24
+partial(volume,2,3)(4); //=> 24
 
 
 //Generate a Random Number between..
