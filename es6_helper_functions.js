@@ -6,7 +6,9 @@ Pure Functions
 */
 
 
-/* curry/partial application are both techniques for specializing a generalized function */
+/*
+curry/partial application are both techniques for specializing a generalized function
+*/
 
 
 //curry - a returned function that accepts one arguments at a time on each call
