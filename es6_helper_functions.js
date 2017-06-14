@@ -11,7 +11,7 @@ curry/partial application are both techniques for specializing a generalized fun
 */
 
 
-//curry - a returned function that accepts one arguments at a time on each call
+//curry - a returned function that accepts one arguments at a time on each call (chain of unary functions)
 let getGradeTest = passGrade => failGrade => average => testScore => 
 	testScore >= average ? passGrade : failGrade;
 
