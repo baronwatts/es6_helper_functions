@@ -16,18 +16,18 @@ let getGradeTest = passGrade => failGrade => average => testScore =>
 	testScore >= average ? passGrade : failGrade;
 
 const passFailTester = getGradeTest('Pass')('Fail')(0.2); //returns the last function(testScore){};
-console.log( passFailTester(0.19) ); //=> Fail
-console.log( passFailTester(0.21) ); //=> Pass
+passFailTester(0.19); //=> Fail
+passFailTester(0.21); //=> Pass
 
 
 let leftCurryDiv = n => d => n/d;
 let divide10By = leftCurryDiv(10);
-console.log( divide10By(2) ); //=> 5
+divide10By(2); //=> 5
 
 
 let rightCurryDiv = d => n => n/d;
 let divideBy10 = rightCurryDiv(10);
-console.log( divideBy10(2) ); //=> 0.2
+divideBy10(2); //=> 0.2
 
 
 
@@ -77,37 +77,37 @@ range(5, 10).reverse(); //=> [10, 9, 8, 7, 6, 5]
 
 //Generate a Random Number between..
 let randnum = (min,max) => Math.random() * (max-min) + min;
-console.log( randnum(1,7) ); //=> outputs a random number between 1 and 7
+randnum(1,7); //=> outputs a random number between 1 and 7
 
 
 //Check if number is odd
 let isodd = (num) => num % 2 !=0 ? true : false;
-console.log( isodd(7) ); //=> true
+isodd(7); //=> true
 
 
 //Check if number is even
 let iseven = (num) => num % 2 !=0 ? false : true;
-console.log( iseven(4) ); //=> true
+iseven(4); //=> true
 
 
 //Check first value in the array
 let isFirstBiggest = xs => xs[0] == xs.sort((a,b)=>b-a)[0];
-console.log( isFirstBiggest([20.1, 5,4,3,2,1]) ); //=> true
+isFirstBiggest( [20.1, 5,4,3,2,1] ); //=> true
 
 
 //Get random item in an array
 let getRandArrayItem = (arr) => arr[ Math.floor(Math.random() * arr.length) ];
-console.log( getRandArrayItem(['red', 'blue', 'green', 'tan' ]) ); //=> green
+getRandArrayItem( ['red', 'blue', 'green', 'tan' ] ); //=> green
 
 
 //Check if array has a specific item
 let arrayhasItem = (array, item) => array.some(x=>x==item);
-arrayhasItem(['red', 'blue', 'green', 'tan' ], 'blue'); //=> true
+arrayhasItem( ['red', 'blue', 'green', 'tan' ], 'blue' ); //=> true
 
 
 //Remove a specific item in an array
 let removeArrayItem = (array, item) => array.filter(x => x != item);
-console.log( removeArrayItem(['red', 'blue', 'green', 'tan' ], 'tan') ); //=> ['red','blue','green']
+removeArrayItem( ['red', 'blue', 'green', 'tan' ], 'tan' ); //=> ['red','blue','green']
 
 
 //Shuffle an array
@@ -132,12 +132,12 @@ genhsla(); //=> "hsla(88, 50%, 50%, .5)"
 
 //factorial
 let recursion = factorial => factorial <= 0 ? 1 : factorial * recursion(factorial - 1);
-console.log( recursion(6) ); //=>720
+recursion(6); //=>720
 
 
 //fibonacci
 let fibonacci = n => n <= 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
-console.log( fibonacci(8) ); //=>34
+fibonacci(8); //=>34
 
 
 //recursion
@@ -152,7 +152,7 @@ printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
 
 //Get Average
 let getAverage = tests => tests.reduce( (acc,elem) => acc + elem ) / tests.length;
-getAverage([10,20,30]); //=> 20
+getAverage( [10,20,30] ); //=> 20
 
 
 //Multiply All
@@ -192,9 +192,9 @@ let arrayToObject = (arr, keyField) => arr.reduce((obj, item) => (obj[item[keyFi
 let arr = objToArray(our_data);
 let obj = arrayToObject(arr, 'name');
 
-console.log(arr); //=> [ {},{},{} ]
-console.log(obj); //=> { key:{},key:{},key:{} } 
-console.log(obj['bob']); //=> {name: "bob", age: 30, city: "Busyville"}
+arr; //=> [ {},{},{} ]
+obj; //=> { key:{},key:{},key:{} } 
+obj['bob']; //=> {name: "bob", age: 30, city: "Busyville"}
 
 
 
@@ -214,7 +214,7 @@ let twerps = [
 
 let getProp = name => object => object[name];
 let result = twerps.map( getProp('age') ).join(', ');
-console.log(result); //=> 26,33,27
+result; //=> 26,33,27
 
 
 
