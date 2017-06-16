@@ -231,6 +231,6 @@ var obj = {
     eyeColor: 'blue'
 };
 
-for (const [key, value] of Object.entries(obj)) {
+for ( const [key, value] of Object.entries(obj) ) {
     console.log(`${key}: ${value}`); //=> outputs the object as a string
 }
