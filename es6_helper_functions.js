@@ -60,6 +60,15 @@ addTenAndDouble(7); //=> 34
 
 
 
+//compose 2
+let splitIntoSpaces = (str) => str.split(" ");
+let count = (array) => array.length;
+let countWords = compose(count,splitIntoSpaces);
+countWords("hello your reading about composition"); //=> 5
+//OR compose(count,splitIntoSpaces)("hello your reading about composition"); //=> 5
+
+
+
 //Generate a Random Number between..
 let randnum = (min,max) => Math.random() * (max-min) + min;
 console.log( randnum(1,7) ); //=> outputs a random number between 1 and 7
