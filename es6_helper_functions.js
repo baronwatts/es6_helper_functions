@@ -76,7 +76,7 @@ range(5, 10).reverse(); //=> [10, 9, 8, 7, 6, 5]
 
 
 //Generate a Random Number between..
-let randnum = (min,max) => Math.random() * (max-min) + min;
+let randnum = (min,max) => Math.round( Math.random() * (max-min) + min );
 randnum(1,7); //=> outputs a random number between 1 and 7
 
 
