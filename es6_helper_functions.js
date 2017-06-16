@@ -71,6 +71,8 @@ countWords("hello your reading about composition"); //=> 5
 //Create range
 let range = (start, end) => Array.from({ length: end + 1 - start }, (v, k) => start + k);
 range(5, 10); //=> [5, 6, 7, 8, 9, 10]
+range(5, 10).reverse(); //=> [10, 9, 8, 7, 6, 5]
+
 
 
 //Generate a Random Number between..
