@@ -39,21 +39,24 @@ partial(volume,2,3)(4); //=> 24
 
 
 
+
 //pipe - executes functions from left to right
 const pipe = (...fns) => (x) => fns.reduce((prev, func) => func(prev), x);
 let double = x => x * 2;
 let addTen = x => x + 10;
 let doubleAndAddTen = pipe(double, addTen);
 doubleAndAddTen(7); //=> 24
+//OR pipe(double, addTen)(7); //=> 24
 
 
 
 //compose - executes functions from right to left
-var compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
-var double = x => x * 2;
-var addTen = x => x + 10;
-var addTenAndDouble = compose(double, addTen);
+const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
+let double = x => x * 2;
+let addTen = x => x + 10;
+let addTenAndDouble = compose(double, addTen);
 addTenAndDouble(7); //=> 34
+//OR compose(addTen,double)(7); //=> 34
 
 
 
