@@ -51,7 +51,7 @@ doubleAndAddTen(7); //=> 24
 
 
 //compose - executes functions from right to left
-const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
+const compose = (...fns) => fns.reduce((a, b) => (...c) => a(b(...c)));
 let double = x => x * 2;
 let addTen = x => x + 10;
 let addTenAndDouble = compose(double, addTen);
