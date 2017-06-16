@@ -56,7 +56,7 @@ let double = x => x * 2;
 let addTen = x => x + 10;
 let addTenAndDouble = compose(double, addTen);
 addTenAndDouble(7); //=> 34
-//OR compose(addTen,double)(7); //=> 34
+//OR compose(double, addTen)(7); //=> 34
 
 
 
