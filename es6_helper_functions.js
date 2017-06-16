@@ -38,6 +38,25 @@ partial(volume,2)(3,4); //=> 24
 partial(volume,2,3)(4); //=> 24
 
 
+
+//pipe - executes functions from left to right
+const pipe = (...fns) => (x) => fns.reduce((prev, func) => func(prev), x);
+let double = x => x * 2;
+let addTen = x => x + 10;
+let doubleAndAddTen = pipe(double, addTen);
+doubleAndAddTen(5); //=> 20
+
+
+
+//compose - executes functions from right to left
+var compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
+var double = x => x * 2;
+var addTen = x => x + 10;
+var addTenAndDouble = compose(double, addTen);
+addTenAndDouble(5); //=> 30
+
+
+
 //Generate a Random Number between..
 let randnum = (min,max) => Math.random() * (max-min) + min;
 console.log( randnum(1,7) ); //=> outputs a random number between 1 and 7
