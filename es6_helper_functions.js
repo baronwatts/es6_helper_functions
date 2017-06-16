@@ -64,7 +64,7 @@ addTenAndDouble(7); //=> 34
 const compose = (fn, ...rest) => 
 rest.length === 0 ?
 (fn||(x=>x)) :
-(...args) => fn(compose(...rest)(...args));
+(...args) => fn( compose(...rest)(...args) );
 
 let splitIntoSpaces = (str) => str.split(" ");
 let count = (array) => array.length;
