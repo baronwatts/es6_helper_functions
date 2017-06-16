@@ -60,7 +60,12 @@ addTenAndDouble(7); //=> 34
 
 
 
-//compose 2
+//compose - recursive version
+const compose = (fn, ...rest) => 
+rest.length === 0 ?
+(fn||(x=>x)) :
+(...args) => fn(compose(...rest)(...args));
+
 let splitIntoSpaces = (str) => str.split(" ");
 let count = (array) => array.length;
 let countWords = compose(count,splitIntoSpaces);
