@@ -220,3 +220,17 @@ result; //=> 26,33,27
 
 //Array of indexes
 Array.from( Array(4).keys() ); //=> [0,1,2,3]
+
+
+
+//Loop over an object
+var obj = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 50,
+    eyeColor: 'blue'
+};
+
+for (const [key, value] of Object.entries(obj)) {
+    console.log(`${key}: ${value}`); //=> outputs the object as a string
+}
