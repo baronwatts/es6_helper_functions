@@ -44,7 +44,7 @@ const pipe = (...fns) => (x) => fns.reduce((prev, func) => func(prev), x);
 let double = x => x * 2;
 let addTen = x => x + 10;
 let doubleAndAddTen = pipe(double, addTen);
-doubleAndAddTen(5); //=> 20
+doubleAndAddTen(7); //=> 24
 
 
 
@@ -53,7 +53,7 @@ var compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
 var double = x => x * 2;
 var addTen = x => x + 10;
 var addTenAndDouble = compose(double, addTen);
-addTenAndDouble(5); //=> 30
+addTenAndDouble(7); //=> 34
 
 
 
