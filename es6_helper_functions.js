@@ -150,7 +150,7 @@ let printNumbers = (from,to) => ( from !== to ? printNumbers(from + 1, to) : con
 printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
 
 
-//repeat
+//repeat w/ custom delay
 var repeat = num => ( num <= 1? 1: setTimeout( ()=>{repeat(num-1)}, 2000), console.log('Are We There Yet?') );
 repeat(6);
 
