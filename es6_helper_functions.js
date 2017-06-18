@@ -150,6 +150,11 @@ let printNumbers = (from,to) => ( from !== to ? printNumbers(from + 1, to) : con
 printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
 
 
+//repeat
+var repeat = num => ( num <= 0? 1: setTimeout( ()=>{repeat(num-1)}, 2000), console.log('can i smell them please?') );
+repeat(6);
+
+
 //Get Average
 let getAverage = tests => tests.reduce( (acc,elem) => acc + elem ) / tests.length;
 getAverage( [10,20,30] ); //=> 20
