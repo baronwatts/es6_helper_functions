@@ -15,7 +15,7 @@ curry/partial application are both techniques for specializing a generalized fun
 let getGradeTest = passGrade => failGrade => average => testScore => 
 	testScore >= average ? passGrade : failGrade;
 
-const passFailTester = getGradeTest('Pass')('Fail')(0.2); //returns the last function(testScore){};
+const passFailTester = getGradeTest('Pass')('Fail')(0.2); //returns the last function testScore(){};
 passFailTester(0.19); //=> Fail
 passFailTester(0.21); //=> Pass
 
