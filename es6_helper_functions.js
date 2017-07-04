@@ -151,7 +151,7 @@ printNumbers(3, 10); //=> 3 4 5 6 7 8 9 10
 
 
 //repeat w/ custom delay
-var repeat = num => ( num <= 1? 1: setTimeout( ()=>{repeat(num-1)}, 2000), console.log('Are We There Yet?') );
+let repeat = num => ( num <= 1? 1: setTimeout( ()=>{repeat(num-1)}, 2000), console.log('Are We There Yet?') );
 repeat(6);
 
 
@@ -166,7 +166,7 @@ calculate(10,10,20); //=> 2000
 
 
 //Dictionary
-const findColor = name => ({ red:'#ff4444', blue: '#3b5998', yellow: '#fff68f' })[name];
+let findColor = name => ({ red:'#ff4444', blue: '#3b5998', yellow: '#fff68f' })[name];
 findColor('red'); //=> #ff4444
 
 
@@ -229,7 +229,7 @@ Array.from( Array(4).keys() ); //=> [0,1,2,3]
 
 
 //Loop over an object
-var obj = {
+let obj = {
     firstName: 'John',
     lastName: 'Doe',
     age: 50,
