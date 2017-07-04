@@ -239,3 +239,10 @@ var obj = {
 for ( const [key, value] of Object.entries(obj) ) {
     console.log(`${key}: ${value}`); //=> outputs the object as a string
 }
+
+
+//Create an array of objects
+let arrOfObj = new Array(5).fill(null).map(i => 
+	({ 'age': randnum(18, 65), 'city': Math.random() >= 0.50 ? 'San Diego' : 'Texas' }));
+
+
