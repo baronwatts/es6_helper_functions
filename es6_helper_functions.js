@@ -294,6 +294,11 @@ d3.quantile(a, 0.75); // 2
 d3.quantile(a, 0.1); // 0.19999999999999996
 
 
+//cross
+d3.cross([1, 2], ["x", "y"]); // returns [[1, "x"], [1, "y"], [2, "x"], [2, "y"]]
+d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // returns ["1x", "1y", "2x", "2y"]
+
+
 
 //using slice to extract portions of an array
 var arr = d3.range(50);
