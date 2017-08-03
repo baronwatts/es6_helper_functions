@@ -267,3 +267,18 @@ var nest = d3.nest()
     .entries(yields);
 
 nest;//-=> [{key: 1931, values: [{ key: "Manchuria", values: [{ site: "University Farm", variety: "Manchuria, year: 1931, yield: 27}] }]}]
+
+
+
+//nest by year and sort by latest year
+var yields = [
+  {yield: 27.00, variety: "Manchuria", year: 1931, site: "University Farm"},
+  {yield: 48.87, variety: "Manchuria", year: 1932, site: "Waseca"},
+  {yield: 27.43, variety: "Manchuria", year: 1933, site: "Morris"},
+];
+var nest = d3.nest()
+    .key(function(d) { return d.year; })
+    .sortKeys(d3.descending)
+    .entries(yields);
+
+nest;//-=> [{key: 1933, values: [{ variety: "Manchuria", year: 1933, site: "Morris" }] }]
