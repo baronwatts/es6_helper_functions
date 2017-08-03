@@ -277,11 +277,31 @@ var yields = [
   {yield: 27.43, variety: "Manchuria", year: 1933, site: "Morris"},
 ];
 var nest = d3.nest()
-    .key(function(d) { return d.year; })
+    .key( (d)=> d.year )
     .sortKeys(d3.descending)
     .entries(yields);
 
-nest;//-=> [{key: 1933, values: [{ variety: "Manchuria", year: 1933, site: "Morris" }] }]
+nest;//-=> [{key: 1933, values: [{ variety: "Manchuria", year: 1933, site: "Morris", yield: "27.43" }] }]
+
+
+
+
+
+//rollup - takes all the individual value variables that are in each unique datefield and sums them
+var yields = [
+  {yield: 27.00, variety: "Manchuria", year: 1931, site: "University Farm"},
+  {yield: 48.87, variety: "Manchuria", year: 1932, site: "Waseca"},
+  {yield: 27.43, variety: "Manchuria", year: 1933, site: "Morris"},
+];
+var nest = d3.nest()
+    .key( (d)=> d.year)
+    .rollup( (d)=> d3.sum(d, (g)=>g.yield ))
+    .entries(yields);
+
+nest; //=> [{key: '1931', values: 27}, {key: '1932', values: 48.87}, {key: '1933', values: 27.43}]
+
+
+
 
 
 //quantile
