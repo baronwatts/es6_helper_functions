@@ -282,3 +282,13 @@ var nest = d3.nest()
     .entries(yields);
 
 nest;//-=> [{key: 1933, values: [{ variety: "Manchuria", year: 1933, site: "Morris" }] }]
+
+
+//quantile
+var a = [0, 1, 3];
+d3.quantile(a, 0); // 0
+d3.quantile(a, 0.5); // 1
+d3.quantile(a, 1); // 3
+d3.quantile(a, 0.25); // 0.5
+d3.quantile(a, 0.75); // 2
+d3.quantile(a, 0.1); // 0.19999999999999996
