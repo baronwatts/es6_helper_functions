@@ -266,4 +266,4 @@ var nest = d3.nest()
     .key(function(d) { return d.variety; })
     .entries(yields);
 
-nest;//-=> [{key: 1931, values: [{ key: "Manchuria", values: [{ site: "University Farm", variety: "Manchuria, year: 1931, yiels: 27}] }]}]
+nest;//-=> [{key: 1931, values: [{ key: "Manchuria", values: [{ site: "University Farm", variety: "Manchuria, year: 1931, yield: 27}] }]}]
