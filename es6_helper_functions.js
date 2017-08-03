@@ -246,3 +246,24 @@ let arrOfObj = new Array(5).fill(null).map(i =>
 	({ 'age': randnum(18, 65), 'city': Math.random() >= 0.50 ? 'San Diego' : 'Houston' }));
 
 
+
+
+
+//D3
+d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", value: true}]
+d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
+d3.pairs([1, 2, 3, 4]); // returns [[1, 2], [2, 3], [3, 4]]
+
+
+//nest the elements first by year
+var yields = [
+  {yield: 27.00, variety: "Manchuria", year: 1931, site: "University Farm"},
+  {yield: 48.87, variety: "Manchuria", year: 1932, site: "Waseca"},
+  {yield: 27.43, variety: "Manchuria", year: 1933, site: "Morris"},
+];
+var nest = d3.nest()
+    .key(function(d) { return d.year; })
+    .key(function(d) { return d.variety; })
+    .entries(yields);
+
+nest;//-=> [{key: 1931, values: [{ key: "Manchuria", values: [{ site: "University Farm", variety: "Manchuria, year: 1931, yiels: 27}] }]}]
