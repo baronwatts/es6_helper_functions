@@ -300,6 +300,12 @@ d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // returns ["1x", "1y", "2x", "2y
 
 
 
+//steps using d3.range. (startVal, endVal, stepVal)
+d3.range(0, 1, 0.2);//=> [0, 0.2, 0.4, 0.6, 0.8]
+d3.range(10, 15, 0.5);//=> [10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5]
+
+
+
 //using slice to extract portions of an array
 var arr = d3.range(50);
 
