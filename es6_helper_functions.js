@@ -79,6 +79,9 @@ range(5, 10).reverse(); //=> [10, 9, 8, 7, 6, 5]
 let randnum = (min,max) => Math.round( Math.random() * (max-min) + min );
 randnum(1,7); //=> outputs a random number between 1 and 7
 
+let randStep = (min, max, step) => min + (step * Math.floor(Math.random()*(max-min)/step) );
+//randStep(0, 100, 20);//=>0,20,40,60,80
+
 
 //Check if number is odd
 let isodd = (num) => num % 2 !=0 ? true : false;
