@@ -329,12 +329,23 @@ d3.range(10, 15, 0.5);//=> [10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5]
 
 
 
-//using slice to extract portions of an array
-var arr = d3.range(50);
+//ES6 Fat Arrow
+//`this` refers to the actual DOM element.
+$("#b1").click(function () {
+    $("li").each(function () {
+        console.log(this);
+    });
+});
+// <li>foo</li>
+// <li>bar</li>
 
-var portion = arr.slice(0, 10);//=> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-var portion2 = arr.slice(10, 20);//=> [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-var portion3 = arr.slice(20, 30);//=> [20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
-var portion4 = arr.slice(30, 40);//=> [30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
-var portion5 = arr.slice(40, 50);//=> [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+
+
+//`this` refers to the immediate enclosing lexical scope or the Parent scope
+$("#b2").click(function () {
+    $("li").each(() => console.log(this));
+});
+
+// <button id="b2"></button>
+// <button id="b2"></button>
 
