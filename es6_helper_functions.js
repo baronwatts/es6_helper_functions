@@ -349,3 +349,19 @@ $("#b2").click(function () {
 // <button id="b2"></button>
 // <button id="b2"></button>
 
+
+
+
+//generate random dates
+let randomTime = (start, end) => {
+    let diff =  end.getTime() - start.getTime();
+    let new_diff = diff * Math.random();
+    let date = new Date(start.getTime() + new_diff);
+    return date.toDateString();
+}
+
+randomTime(new Date("01-03-2017"), new Date("12-31-2017")); //=> Fri Jan 06 2017
+
+  
+
+
