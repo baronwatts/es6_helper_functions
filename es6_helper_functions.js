@@ -353,20 +353,14 @@ $("#b2").click(function () {
 
 
 //generate random dates
-let randomTime = (start, end) => {
-    let diff =  end.getTime() - start.getTime();
-    let new_diff = diff * Math.random();
-    let date = new Date(start.getTime() + new_diff);
-    return date.toDateString();
-}
-
-randomTime(new Date("01-03-2017"), new Date("12-31-2017")); //=> Fri Jan 06 2017
+let randDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toDateString();
+randDate(new Date(2017, 0, 1), new Date());//=> Fri Jul 07 2017
 
 
 //create d3.nest() type data structure
 var our_data = d3.range(20).map(x=>
 				({'key': Math.round(Math.random()*65), 
-				  'values' : [{ 'date': randomTime(new Date("01-03-2017"), new Date("12-31-2017")) }] 
+				  'values' : [{ 'date': randDate(new Date(2017, 0, 1), new Date()) }] 
 				 })); //=> { key: 12, values: [{date: "Sat Aug 19 2017"}] }
 
   
