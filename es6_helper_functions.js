@@ -362,6 +362,13 @@ let randomTime = (start, end) => {
 
 randomTime(new Date("01-03-2017"), new Date("12-31-2017")); //=> Fri Jan 06 2017
 
+
+//create d3.nest() type data structure
+var our_data = d3.range(20).map(x=>
+				({'key': Math.round(Math.random()*65), 
+				  'values' : [{ 'date': randomTime(new Date("01-03-2017"), new Date("12-31-2017")) }] 
+				 })); //=> { key: 12, values: [{date: "Sat Aug 19 2017"}] }
+
   
 
 
