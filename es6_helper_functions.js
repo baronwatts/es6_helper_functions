@@ -363,6 +363,13 @@ var our_data = d3.range(20).map(x=>
 				  'values' : [{ 'date': randDate(new Date(2017, 0, 1), new Date()) }] 
 				 })); //=> { key: 12, values: [{date: "Sat Aug 19 2017"}] }
 
+
+
+
+//convert svg circle to a svg circle path
+const circleToPath = (cx,cy,r) => `M${cx-r},${cy}a${r},${r} 0 1,0 ${r*2},0a${r},${r} 0 1,0 -${r*2},0`;
+
+
   
 
 
