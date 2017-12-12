@@ -123,6 +123,7 @@ let mySort = (...args) => args.sort( (a,b)=> a-b );
 mySort(10,2,3); //=> [2,3,10]
 
 
+//Flatten an array
 let flatten = arr => arr.reduce( (a, v) => a.concat(v), []);
 flatten([1,[2],3,4,[10,20,30,40], 90]); //=> [1, 2, 3, 4, 10, 20, 30, 40, 90]
 
