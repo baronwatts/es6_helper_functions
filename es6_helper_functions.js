@@ -129,7 +129,7 @@ flatten([1,[2],3,4,[10,20,30,40], 90]); //=> [1, 2, 3, 4, 10, 20, 30, 40, 90]
 
 
 //Breaks down the array into chunks
-var chunk = (arr, size) =>
+let chunk = (arr, size) =>
   Array.apply(null, {length: Math.ceil(arr.length/size)}).map((v, i) => arr.slice(i*size, i*size+size));
 chunk([1,2,3,4,5,9,8,7], 3); //=> [[1,2,3],[4,5,6], [7,8]]
 
@@ -140,7 +140,7 @@ countOccurrences([7,7,7,1,1,2,1,2,3,7], 7); //=> 4
 
 
 //Calculate the Euclidean distance between two points.
-const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);
+let distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);
 distance(1,1, 2,3); //=> 2.23606797749979
 
 
@@ -203,12 +203,12 @@ uuid(); //=> '7982fcfe-5721-4632-bede-6000885be57d'
 
 
 //Unique 
-const unique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
+let unique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
 unique([1,2,2,3,4,4,5]); //=> [1,3,5]
 
 
 //Similar
-const similarity = (arr, values) => arr.filter(v => values.includes(v));
+let similarity = (arr, values) => arr.filter(v => values.includes(v));
 similarity([1,2,3], [1,2,4]); //=> [1,2]
 
 
