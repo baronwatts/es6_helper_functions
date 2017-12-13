@@ -134,6 +134,11 @@ var chunk = (arr, size) =>
 chunk([1,2,3,4,5,9,8,7], 3); //=> [[1,2,3],[4,5,6], [7,8]]
 
 
+//Counts how many times a value occures in an array
+let countOccurrences = (arr, value) => arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0);
+countOccurrences([7,7,7,1,1,2,1,2,3,7], 7); //=> 4
+
+
 //Generate a random color
 let genhexcolor = () => '#' + Math.floor(Math.random()*16777215).toString(16);
 genhexcolor(); //=> #e53910
