@@ -128,6 +128,12 @@ let flatten = arr => arr.reduce( (a, v) => a.concat(v), []);
 flatten([1,[2],3,4,[10,20,30,40], 90]); //=> [1, 2, 3, 4, 10, 20, 30, 40, 90]
 
 
+//Breaks down the array into chunks
+var chunk = (arr, size) =>
+  Array.apply(null, {length: Math.ceil(arr.length/size)}).map((v, i) => arr.slice(i*size, i*size+size));
+chunk([1,2,3,4,5,9,8,7], 3); //=> [[1,2,3],[4,5,6], [7,8]]
+
+
 //Generate a random color
 let genhexcolor = () => '#' + Math.floor(Math.random()*16777215).toString(16);
 genhexcolor(); //=> #e53910
