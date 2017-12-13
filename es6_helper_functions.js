@@ -139,6 +139,11 @@ let countOccurrences = (arr, value) => arr.reduce((a, v) => v === value ? a + 1 
 countOccurrences([7,7,7,1,1,2,1,2,3,7], 7); //=> 4
 
 
+//Calculate the Euclidean distance between two points.
+const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);
+distance(1,1, 2,3); //=> 2.23606797749979
+
+
 //Generate a random color
 let genhexcolor = () => '#' + Math.floor(Math.random()*16777215).toString(16);
 genhexcolor(); //=> #e53910
