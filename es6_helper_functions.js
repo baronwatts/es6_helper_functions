@@ -189,6 +189,17 @@ let calculate = (...n) => n.reduce( (a,b) => a*b );
 calculate(10,10,20); //=> 2000
 
 
+//sum up value
+let arrObj = [
+  {name: "deez", new: 1},
+  {name: "deez", new: 4},
+  {name: "deez", new: 6}
+];
+
+arrObj.map( (d,i)=> 
+	( [d.new].reduce( (acc,elem) => acc + elem )) ).reduce( (a,b) => a+b ); //=> 11
+
+
 //Dictionary
 let findColor = name => ({ red:'#ff4444', blue: '#3b5998', yellow: '#fff68f' })[name];
 findColor('red'); //=> #ff4444
