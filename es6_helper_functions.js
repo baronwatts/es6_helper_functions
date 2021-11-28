@@ -320,6 +320,60 @@ let arrOfObj = new Array(5).fill(null).map(i =>
 	({ 'age': randnum(18, 65), 'city': Math.random() >= 0.50 ? 'San Diego' : 'Houston' }));
 
 
+//The (For in) loop returns the index and not the value
+let obj = {
+  "a": 1,
+  "b": 2,
+  "c": 3
+};
+let arr = ["a", "b", "c", "d"];
+let str = "abcde";
+
+for(var i in obj){
+  console.log(i);
+} // logs "a", "b", and "c"
+
+for(var j in arr){
+  console.log(j);
+} // logs 0, 1, 2, and 3
+
+for(var k in str){
+  console.log(k);
+} //logs 0, 1, 2, 3, and 4
+
+
+//The (For of) loop returns the value. Doesn't work with objects
+let arr = ["a", "b", "c", "d"];
+let str = "abcde";
+
+for(var j of arr){
+  console.log(j);
+} // logs "a", "b", "c", and "d"
+
+for(var k of str){
+  console.log(k);
+} //logs "a", "b", "c", "d", and "e"
+
+
+
+//Double String length in an array
+let arr = ["a", "b", "c"];
+arr.map(value => value.repeat(2)); // ["aa", "bb", "cc"]
+
+
+//Split string by each index 
+let str = "abc"
+console.log([...str]) // prints ["a", "b", "c"]
+
+
+//Unique set of array
+let arr = ["a", "b", "b", "a", "c", "d", "c", "e"]
+console.log([...new Set(arr)]); // [ 'a', 'b', 'c', 'd', 'e' ]
+
+
+//Split an array on different characters 
+let str = "aaabccdddddefffgggh"
+console.log(srt.match(/(.)\1*/g)); // logs ["aaa", "b", "cc", "ddddd", "e", "fff", "ggg", "h"]
 
 
 
