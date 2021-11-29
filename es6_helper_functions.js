@@ -118,6 +118,18 @@ let shuffleArray = (arr) => arr.sort( () => (Math.random() - 0.5) );
 shuffleArray(['a','b','c','d']); //=> ['d','a','c','b']
 
 
+let checkEmptyArray = (arr) => !Array.isArray(arr) || arr.length === 0;
+
+let arr1 = [1, 2, 3, 4, 5];
+console.log(checkEmptyArray(arr1));//=>false
+ 
+let arr2 = [];
+console.log(checkEmptyArray(arr2));//=>true
+ 
+let arr3 = [""];
+console.log(checkEmptyArray(arr3));//=>false
+
+
 //Sort an array
 let mySort = (...args) => args.sort( (a,b)=> a-b );
 mySort(10,2,3); //=> [2,3,10]
@@ -218,6 +230,8 @@ uuid(); //=> '7982fcfe-5721-4632-bede-6000885be57d'
 //Unique 
 let unique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
 unique([1,2,2,3,4,4,5]); //=> [1,3,5]
+unique(['W', 'E', 'L', 'C', 'O', 'M', 'E', 'T', 'O', 'M', 'U', 'O']);//=>[ 'W', 'L', 'C', 'T', 'U' ]
+
 
 
 //Similar
@@ -242,6 +256,24 @@ let distance = (lat1, lon1, lat2, lon2, unit) => {
 }
 
 distance(32.9184,-117.1382,29.7002,-98.5878,"M"); //=> 1115.7791938769567
+
+
+
+//Convert degrees to radians
+//Radians = Degrees × π/180
+let degreesToRadians = (deg) => (deg * Math.PI) / 180.0;
+degreesToRadians(360);//=>6.283185307179586
+degreesToRadians(180);//=>3.141592653589793
+degreesToRadians(120);//=>2.0943951023931953
+
+
+//Convert Radians to Degrees
+//Degrees = Radians × 180/π
+let radiansToDegrees = (rad) => (rad * 180) / Math.PI;
+radiansToDegrees(6.283185307179586);//=>360
+radiansToDegrees(3.141592653589793);//=>180
+radiansToDegrees(2.0943951023931953);//=>119.99999999999999
+
 
 
 
@@ -493,6 +525,16 @@ var our_data = d3.range(20).map(x=>
 
 //convert svg circle to a svg circle path
 const circleToPath = (cx,cy,r) => `M${cx-r},${cy}a${r},${r} 0 1,0 ${r*2},0a${r},${r} 0 1,0 -${r*2},0`;
+
+
+//detect if ios
+const appleBrowser = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+console.log(appleBrowser);//=>The statement will return true if your browser is running on an Apple device, otherwise, it'll return false.
+
+
+//detect if darkmode
+const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+console.log(darkMode);//=>The statement will return true if dark mode is running, otherwise, it'll return false.
 
 
   
