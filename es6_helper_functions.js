@@ -275,6 +275,8 @@ radiansToDegrees(3.141592653589793);//=>180
 radiansToDegrees(2.0943951023931953);//=>119.99999999999999
 
 
+//Miles to Kilos
+let milesToKilometres = (dist) => Number((dist * 1.609).toFixed(1));
 
 
 //Object to Array & Array to Object
