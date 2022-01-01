@@ -530,6 +530,7 @@ const circleToPath = (cx,cy,r) => `M${cx-r},${cy}a${r},${r} 0 1,0 ${r*2},0a${r},
 
 //circumference of a circle
 //When a circle's radius is 1 it's called a unit circle. Its circumference is 2pi 
+//When a circle's diameter is 1, its circumference is pi
 const calculateCircumference = (radius) => Math.PI * (radius + radius);
 calculateCircumference(1);  // 6.283185307179586
 
