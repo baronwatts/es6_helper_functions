@@ -528,6 +528,10 @@ var our_data = d3.range(20).map(x=>
 //convert svg circle to a svg circle path
 const circleToPath = (cx,cy,r) => `M${cx-r},${cy}a${r},${r} 0 1,0 ${r*2},0a${r},${r} 0 1,0 -${r*2},0`;
 
+//circumference of a circle
+const calculateCircumference = (radius) => Math.PI * (radius + radius);
+calculateCircumference(1);  // 6.283185307179586
+
 
 //detect if ios
 const appleBrowser = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
