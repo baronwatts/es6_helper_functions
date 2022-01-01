@@ -539,6 +539,26 @@ const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: 
 console.log(darkMode);//=>The statement will return true if dark mode is running, otherwise, it'll return false.
 
 
-  
+
+
+//planetinfo.json
+  {
+   "description": "Planets in the solar system",
+   "planets": [
+     { "name": "Mercury",
+       "aphelion": 69.8,
+       "perihelion": 46.0,
+       "radius": 2439,
+       "moons": [0]
+     },
+	
+//get desciption
+fetch('./planetinfo.json')
+ .then(response => response.json())
+ .then(obj =>{
+ console.log(obj.description);
+ }).catch( err => console.error(err) );
+	   
+
 
 
