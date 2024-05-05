@@ -411,6 +411,20 @@ console.log(srt.match(/(.)\1*/g)); // logs ["aaa", "b", "cc", "ddddd", "e", "fff
 
 
 
+
+//ipaddress to decimal converter
+function ipConverter(input) {
+    return typeof input === 'number' ?
+        ( (input>>>24) +'.' + (input>>16 & 255) +'.' + (input>>8 & 255) +'.' + (input & 255) ) :
+        typeof input === 'string' ?
+            input.split('.').reduce(function(ipInt, octet) { return (ipInt<<8) + parseInt(octet, 10)}, 0) >>> 0 :
+            (() => { throw new Error("Input must be either a string representing an IP address or an integer."); })();
+}
+
+ipConverter('190.6.66.92') #=> returns decimal 3188081244
+ipConverter(3188081244)  #=> returns ip 190.6.66.92
+
+
 //D3
 d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", value: true}]
 d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
